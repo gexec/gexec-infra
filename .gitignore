@@ -1,0 +1,8 @@
+.direnv/
+.devenv/
+.terraform/
+
+*.retry
+*.tfvars
+
+.pre-commit-config.yaml
