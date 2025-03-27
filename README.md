@@ -23,11 +23,11 @@ store, after that you can simply execute the commands below.
 cat << EOF >| .envrc
 use flake . --impure
 
-export AWS_ACCESS_KEY_ID=$(op read op://Gexec/TerraformState/username)
-export AWS_SECRET_ACCESS_KEY=$(op read op://Gexec/TerraformState/password)
-
 export CLOUDFLARE_EMAIL=$(op read op://Gexec/Cloudflare/username)
 export CLOUDFLARE_API_KEY=$(op read op://Gexec/Cloudflare/token)
+
+export AWS_ACCESS_KEY_ID=$(op read op://Gexec/Terraform/username)
+export AWS_SECRET_ACCESS_KEY=$(op read op://Gexec/Terraform/password)
 EOF
 
 direnv allow

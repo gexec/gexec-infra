@@ -6,21 +6,29 @@ terraform {
   }
 
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.85.0"
-    }
     cloudflare = {
       source  = "cloudflare/cloudflare"
       version = "~> 5.0.0"
     }
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.85.0"
+    }
   }
 
-  required_version = ">= 1.9"
+  required_version = ">= 1.0"
 }
 
 provider "aws" {
-  region = "eu-central-1"
+  region = var.aws_region
+}
+
+resource "cloudflare_zone" "gexec" {
+  name = "gexec.eu"
+
+  account = {
+    id = var.cloudflare_account
+  }
 }
 
 provider "aws" {

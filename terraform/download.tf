@@ -64,18 +64,18 @@ resource "aws_s3_bucket_cors_configuration" "download" {
   }
 }
 
-resource "cloudflare_dns_record" "download" {
-  zone_id = var.cloudflare_zone
-  name    = "dl"
-  content = aws_s3_bucket_website_configuration.download.website_endpoint
-  type    = "CNAME"
-  ttl     = 1
-  proxied = true
-}
-
 resource "aws_s3_object" "download" {
   bucket       = aws_s3_bucket.download.id
   key          = "index.html"
   source       = "index.html"
   content_type = "text/html"
+}
+
+resource "cloudflare_dns_record" "download" {
+  zone_id = cloudflare_zone.gexec.id
+  name    = "dl"
+  content = aws_s3_bucket_website_configuration.download.website_endpoint
+  type    = "CNAME"
+  ttl     = 1
+  proxied = true
 }

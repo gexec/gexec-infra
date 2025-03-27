@@ -1,4 +1,9 @@
-variable "cloudflare_zone" {
+variable "aws_region" {
   type    = string
-  default = "6ff9b6455233c229d53e76495a78c4fa"
+  default = "eu-central-1"
+}
+
+variable "cloudflare_account" {
+  type    = string
+  default = "4fc42edfd414051cf85497affc49b987"
 }
