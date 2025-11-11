@@ -22,7 +22,6 @@ repository:
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
 
-
 rulesets:
   - name: prevent destruction
     target: branch
@@ -94,7 +93,6 @@ rulesets:
       - actor_id: 12094995 # bots
         actor_type: Team
         bypass_mode: always
-
 
 teams:
   - name: admins

@@ -11,27 +11,26 @@ name: general
     branches:
       - master
 
+permissions:
+  contents: read
+
 jobs:
   terraform:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout source
-        id: source
         uses: actions/checkout@v5
 
       - name: Setup terraform
-        id: terraform
         uses: hashicorp/setup-terraform@v3
         with:
           terraform_version: latest
 
       - name: Terraform format
-        id: fmt
         run: bin/terraform fmt -no-color -check
 
       - name: Terraform init
-        id: init
         env:
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
           CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
@@ -40,7 +39,6 @@ jobs:
         run: bin/terraform init -upgrade -no-color -input=false
 
       - name: Terraform validate
-        id: validate
         env:
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
           CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
@@ -49,7 +47,6 @@ jobs:
         run: bin/terraform validate -no-color
 
       - name: Terraform plan
-        id: plan
         env:
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
           CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
@@ -58,7 +55,6 @@ jobs:
         run: bin/terraform plan -no-color -input=false
 
       - name: Terraform apply
-        id: apply
         env:
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
           CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
