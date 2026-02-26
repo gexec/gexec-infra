@@ -57,7 +57,7 @@
               default = {
                 git-hooks = {
                   hooks = {
-                    nixfmt-rfc-style = {
+                    nixfmt = {
                       enable = true;
                     };
 
@@ -81,7 +81,7 @@
 
                 packages = with pkgs; [
                   _1password-cli
-                  nixfmt-rfc-style
+                  nixfmt
                 ];
               };
             };
