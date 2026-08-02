@@ -1,0 +1,8 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[tools]
+1password = "latest"
+node = "24"
+pre-commit = "4.6.1"
+terraform = "1.15.8"
+tflint = "0.64.0"

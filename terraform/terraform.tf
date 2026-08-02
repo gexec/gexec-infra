@@ -30,8 +30,3 @@ resource "cloudflare_zone" "gexec" {
     id = var.cloudflare_account
   }
 }
-
-provider "aws" {
-  alias  = "us-east-1"
-  region = "us-east-1"
-}
