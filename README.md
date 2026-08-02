@@ -42,6 +42,10 @@ AWS_SECRET_ACCESS_KEY = "$(op read op://Gexec/Terraform/password)"
 EOF
 ```
 
+This writes the environment variables into `mise.local.toml` which is ignored
+by Git and only active for your workstation. Run `mise trust` first if you
+haven't already done so for this repository.
+
 ### Deployment
 
 ```console

@@ -31,6 +31,9 @@ jobs:
           client-id: ${{ secrets.TOKEN_EXCHANGE_APP }}
           private-key: ${{ secrets.TOKEN_EXCHANGE_KEY }}
           permission-contents: write
+          permission-pull-requests: write
+          permission-issues: write
+          permission-packages: write
 
       - name: Checkout source
         uses: actions/checkout@v7
@@ -47,13 +50,15 @@ jobs:
             @semantic-release/changelog \
             @semantic-release/git \
             @semantic-release/github \
-            semantic-release-replace-plugin \
             conventional-changelog-conventionalcommits@9
 
       - name: Run releaser
         env:
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
         run: semantic-release
+
+      - name: Source rebase
+        run: git pull --autostash --rebase
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v10
