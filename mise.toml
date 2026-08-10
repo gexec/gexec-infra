@@ -3,6 +3,6 @@
 [tools]
 1password = "latest"
 node = "24"
-pre-commit = "4.6.1"
+pre-commit = "4.6.2"
 terraform = "1.15.8"
 tflint = "0.64.0"
