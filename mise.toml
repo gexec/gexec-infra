@@ -4,5 +4,5 @@
 1password = "latest"
 node = "24"
 pre-commit = "4.6.2"
-terraform = "1.15.9"
+terraform = "1.16.0"
 tflint = "0.64.0"
