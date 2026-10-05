@@ -3,6 +3,6 @@
 [tools]
 1password = "latest"
 node = "24"
-prek = "0.5.4"
+prek = "0.5.5"
 terraform = "1.16.5"
 tflint = "0.64.0"
