@@ -4,5 +4,5 @@
 1password = "latest"
 node = "24"
 prek = "0.5.7"
-terraform = "1.16.6"
+terraform = "1.17.0"
 tflint = "0.64.0"
